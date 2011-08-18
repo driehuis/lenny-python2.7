@@ -14,7 +14,6 @@ hotshot-import.diff
 webbrowser.diff
 linecache.diff
 doc-nodownload.diff
-profiled-build.diff
 no-zip-on-sys.path.diff
 platform-lsbrelease.diff
 bdist-wininst-notfound.diff
