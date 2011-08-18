@@ -977,14 +977,14 @@ endif
 	  fi; \
 	done
 
-	dh_makeshlibs -p$(p_lib) -V '$(p_lib)'
-	dh_makeshlibs -p$(p_dbg) -V '$(p_dbg)'
+	dh_makeshlibs -v -p$(p_lib) -V '$(p_lib)' -- -c0
+	dh_makeshlibs -v -p$(p_dbg) -V '$(p_dbg)' -- -c0
 # don't include the following symbols, found in extensions
 # which either can be built as builtin or extension.
 	sed -ri '/^ (_check_|asdl_|fast_save_|init)/d' \
 	  $(d_lib)/DEBIAN/symbols $(d_dbg)/DEBIAN/symbols
 	dh_installdeb -a
-	dh_shlibdeps -a
+	dh_shlibdeps -v -a
 	dh_gencontrol -a
 	dh_md5sums -a
 	dh_builddeb -a
