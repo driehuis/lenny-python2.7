@@ -141,13 +141,6 @@ d_idle	:= debian/$(p_idle)
 d_doc	:= debian/$(p_doc)
 d_dbg	:= debian/$(p_dbg)
 
-# profiled build fails on some architectures ...
-ifneq (,$(filter $(DEB_HOST_ARCH), hppa ia64 m68k sparc hurd-i386))
-  make_build_target =
-else
-  make_build_target = profile-opt
-endif
-
 build: $(build_target)
 build-all: stamps/stamp-build
 stamps/stamp-build: stamps/stamp-build-static stamps/stamp-build-shared stamps/stamp-build-debug stamps/stamp-build-shared-debug stamps/stamp-mincheck stamps/stamp-check stamps/stamp-pystone stamps/stamp-pybench
@@ -173,7 +166,7 @@ PROFILE_TASK = ../Lib/test/regrtest.py \
 stamps/stamp-build-static: stamps/stamp-configure-static
 	dh_testdir
 	$(MAKE) $(NJOBS) -C $(buildd_static) \
-		PROFILE_TASK='$(PROFILE_TASK)' $(make_build_target)
+		PROFILE_TASK='$(PROFILE_TASK)'
 	touch stamps/stamp-build-static
 
 stamps/stamp-build-shared: stamps/stamp-configure-shared
@@ -378,6 +371,8 @@ stamps/stamp-check:
 ifeq ($(WITHOUT_CHECK),yes)
 	echo "check run disabled for this build" > $(buildd_static)/test_results
 else
+	echo "RATE"
+	exit 1
 	: # build locales needed by the testsuite
 	rm -rf locales
 	mkdir locales
