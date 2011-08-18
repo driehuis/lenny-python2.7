@@ -2,9 +2,9 @@ Source: python2.7
 Section: python
 Priority: optional
 Maintainer: Matthias Klose <doko@debian.org>
-Build-Depends: debhelper (>= 5), quilt, autoconf, libreadline-dev, libncursesw5-dev (>= 5.3), tk8.5-dev, zlib1g-dev, blt-dev (>= 2.4z), libssl-dev, libexpat1-dev, sharutils, libbz2-dev, libbluetooth-dev [!hurd-i386 !kfreebsd-i386 !kfreebsd-amd64], locales [!armel !avr32 !hppa !ia64 !mipsel], libsqlite3-dev, libffi-dev (>= 3.0.5), mime-support, libgpm2 [!hurd-i386 !kfreebsd-i386 !kfreebsd-amd64], netbase, lsb-release, bzip2, libdb4.8-dev, gdb, python, help2man
+Build-Depends: debhelper (>= 5), quilt, autoconf, libreadline-dev, libncursesw5-dev (>= 5.3), zlib1g-dev, libssl-dev, libexpat1-dev, sharutils, libbz2-dev, libbluetooth-dev [!hurd-i386 !kfreebsd-i386 !kfreebsd-amd64], locales [!armel !avr32 !hppa !ia64 !mipsel], libsqlite3-dev, libffi-dev (>= 3.0.5), mime-support, libgpm2 [!hurd-i386 !kfreebsd-i386 !kfreebsd-amd64], netbase, lsb-release, bzip2, libdb4.8-dev, gdb, python, help2man
 Build-Depends-Indep: python-sphinx
-Build-Conflicts: tcl8.3-dev, tk8.3-dev, tcl8.4-dev, tk8.4-dev, python2.7-xml, python-xml, autoconf2.13
+Build-Conflicts: python2.7-xml, python-xml, autoconf2.13
 XS-Python-Version: 2.7
 Standards-Version: 3.9.2
 Vcs-Browser: https://code.launchpad.net/~doko/python/pkg2.7-debian
@@ -73,16 +73,6 @@ Description: Header files and a static library for Python (v2.7)
  .
  Maintainers of Python packages should read README.maintainers.
 
-Package: idle-python2.7
-Architecture: all
-Depends: python2.7, python-tk (>= 2.6~a3), python2.7-tk, ${misc:Depends}
-Enhances: python2.7
-Replaces: python2.7 (<< 2.6.1-2)
-XB-Python-Version: 2.7
-Description: An IDE for Python (v2.7) using Tkinter
- IDLE is an Integrated Development Environment for Python (v2.7).
- IDLE is written using Tkinter and therefore quite platform-independent.
-
 Package: python2.7-doc
 Section: doc
 Architecture: all
@@ -109,7 +99,7 @@ Section: debug
 Architecture: any
 Priority: extra
 Depends: python2.7 (>= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
-Suggests: python-gdbm-dbg, python-tk-dbg
+Suggests: python-gdbm-dbg
 Description: Debug Build of the Python Interpreter (version 2.7)
  Python interpreter configured with --pydebug. Dynamically loaded modules are
  searched in /usr/lib/python2.7/lib-dynload/debug first.
