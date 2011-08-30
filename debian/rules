@@ -371,7 +371,7 @@ stamps/stamp-check:
 ifeq ($(WITHOUT_CHECK),yes)
 	echo "check run disabled for this build" > $(buildd_static)/test_results
 else
-	echo "RATE"
+	echo "Raté. Essayer avec 'DEB_BUILD_OPTIONS=nocheck,nobench' par exemple."
 	exit 1
 	: # build locales needed by the testsuite
 	rm -rf locales
