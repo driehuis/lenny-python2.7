@@ -60,6 +60,9 @@ if [ "$1" = configure ]; then
 	    echo "Linking and byte-compiling packages for runtime @PVER@..."
 	fi
 	version=$(dpkg -s @PVER@-minimal | awk '/^Version:/ {print $2}')
+	# or pyinstall wont work:
+	sed -i -e 's/^supported-versions = .*$/\0, @PVER@/' /usr/share/python/debian_defaults
+	# run pyinstall and friends
 	for hook in /usr/share/python/runtime.d/*.rtinstall; do
 	    [ -x $hook ] || continue
 	    $hook rtinstall @PVER@ "$2" "$version"
