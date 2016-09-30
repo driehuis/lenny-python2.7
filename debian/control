@@ -3,7 +3,7 @@ Section: python
 Priority: optional
 Maintainer: Matthias Klose <doko@debian.org>
 Build-Depends: debhelper (>= 5), quilt, autoconf, libreadline-dev, libncursesw5-dev (>= 5.3), zlib1g-dev, libssl-dev, libexpat1-dev, sharutils, libbz2-dev, libbluetooth-dev [!hurd-i386 !kfreebsd-i386 !kfreebsd-amd64], locales [!armel !avr32 !hppa !ia64 !mipsel], libsqlite3-dev, libffi-dev (>= 3.0.5), mime-support, libgpm2 [!hurd-i386 !kfreebsd-i386 !kfreebsd-amd64], netbase, lsb-release, bzip2, libdb4.8-dev, gdb, python, help2man, libgdbm-dev
-Build-Depends-Indep: python-sphinx
+Build-Depends-Indep: python-sphinx (> 0.4.3)
 Build-Conflicts: python2.7-xml, python-xml, autoconf2.13
 XS-Python-Version: 2.7
 Standards-Version: 3.9.2
